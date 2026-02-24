@@ -44,7 +44,7 @@ Archivo con el enlace al video de la sustentación.
 Además, el enlace se incluye directamente aquí:
 
 ##  Video de Sustentación  
-🔗 **YouTube:** [](https://youtu.be/dMuqO62x3u0)
+🔗 **YouTube:** https://youtu.be/dMuqO62x3u0
 
 ---
 
