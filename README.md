@@ -24,7 +24,7 @@ Incluye el diseño visual de los circuitos:
 
 - Diagrama del **ShiftLeft16** (imagen)
 - Diagrama del **ShiftLeft64** (imagen)
-- Archivo `ShiftLeft.circ` para **Logisim Evolution 3.8.0**, utilizado para visualizar y simular el funcionamiento del circuito.
+- Archivo `ShiftLeft.circ` para **Logisim Evolution**, utilizado para visualizar y simular el funcionamiento del circuito.
 
 ---
 
@@ -32,8 +32,7 @@ Incluye el diseño visual de los circuitos:
 Documento técnico que contiene:
 
 - Explicación del diseño del circuito  
-- Funcionamiento lógico del desplazamiento  
-- Netlist y diagramas  
+- Funcionamiento lógico del desplazamiento   
 - Pruebas realizadas  
 - Conclusiones del proyecto
 
