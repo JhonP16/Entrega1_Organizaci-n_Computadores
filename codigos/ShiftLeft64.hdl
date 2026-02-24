@@ -1,0 +1,30 @@
+/**
+ * Desplaza la entrada de 64 bits 1 bit a la izquierda.
+ * Utiliza 4 chips ShiftLeft16 interconectados mediante sus pines de acarreo.
+ */
+CHIP ShiftLeft64 {
+    IN in[64];
+    OUT out[64];
+
+    PARTS:
+    // --- BLOQUE 1 (Bits 0 a 15) ---
+    // Desplaza la primera sección. El bit en la posición 15 original sale por 'carry' 
+    // y lo conectamos directamente al bit en la posición 16 de la salida general.
+    ShiftLeft16(in=in[0..15], out=out[0..15], carry=out[16]);
+
+    // --- BLOQUE 2 (Bits 16 a 31) ---
+    // Mapeamos las salidas del 1 al 15 hacia las posiciones 17 a 31.
+    // Ignoramos el bit 0 generado por este chip, ya que esa posición (out[16]) 
+    // ya fue ocupada por el acarreo del bloque anterior.
+    // Su propio acarreo se conecta al bit 32 de la salida general.
+    ShiftLeft16(in=in[16..31], out[1..15]=out[17..31], carry=out[32]);
+
+    // --- BLOQUE 3 (Bits 32 a 47) ---
+    // Misma lógica: enrutamos los bits desplazados y pasamos el acarreo al siguiente bloque.
+    ShiftLeft16(in=in[32..47], out[1..15]=out[33..47], carry=out[48]);
+
+    // --- BLOQUE 4 (Bits 48 a 63) ---
+    // El acarreo de este último bloque (el bit 63 original) simplemente no se conecta a nada,
+    // ya que al desplazar 64 bits a la izquierda, el bit más significativo se pierde.
+    ShiftLeft16(in=in[48..63], out[1..15]=out[49..63]);
+}
